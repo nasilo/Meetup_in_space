@@ -1,0 +1,30 @@
+<h1>Create New Meetup</h1>
+
+<form action="/meetups/newevent" method="post">
+
+  <label for="meetup_title">Meetup Title:</label>
+  <input type="text" id="meetup_title" name="meetup_title" class="meeting_form" value='<%=@title%>'>
+
+  </br>
+  </br>
+
+  <label for="meetup_location">Meetup Location:</label>
+  <input type="text" id="meetup_location" name="meetup_location" class="meeting_form" value='<%=@location%>'>
+
+  </br>
+  </br>
+
+  <label for="meetup_description">Meetup Description:</label>
+  <input type="text" id="meetup_description" name="meetup_description" class="meeting_form" value='<%=@description%>'>
+
+  </br>
+  </br>
+
+  <input type="Submit">
+</form>
+
+<% if @error %>
+  <% @error.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>Meetup Details</h1>
+
+<h3><%= @meetup_show.title %> </h3>
+
+<h5>Location:</h5>
+<p><%= @meetup_show.location %> </p>
+
+<h5>Description:</h5>
+<p><%= @meetup_show.description %> </p>
+
+<h5>Creator:</h5>
+<p><%= @meetup_show.user.username %> </p>
+
+<h5>Attending:</h5>
+<ul>
+  <% @attending.each do |user| %>
+    <li><img src="<%=user.avatar_url%>"/> <%= user.username %></li>
+  <% end %>
+</ul>
+
+<% if !session[:user_id].nil? && !@attending.include?(User.find(session[:user_id])) %>
+<form action="/meetups/show/<%= @meetup_show.id %>" method="post">
+  <input type="submit" value="Join this Meetup"/>
+</form>
+<% end %>

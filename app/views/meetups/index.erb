@@ -1,0 +1,13 @@
+<h1>Meetups</h1>
+
+<ul>
+  <% @sorted_meetups.each do |meetup| %>
+    <li>
+      <a href="/meetups/show/<%=meetup.id%>"><%=meetup.title%></a>
+    </li>
+  <% end %>
+</ul>
+
+<button type="button">
+  <a href="/meetups/newevent">Create New Meetup</a>
+</button>
